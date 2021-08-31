@@ -1,0 +1,8 @@
+{
+  "engine": "cocos-creator-js",
+  "packages": "packages",
+  "name": "MyCreator",
+  "id": "a6501cac-e0eb-43c4-94da-81bc2733036d",
+  "version": "2.4.5",
+  "isNew": false
+}
