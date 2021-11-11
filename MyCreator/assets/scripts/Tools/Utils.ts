@@ -199,6 +199,17 @@ export class Utils {
         return null;
     }
 
+    //h5修改参数
+    static setQueryString(name: string, replaceName: string) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        if (Utils.getQueryString(name) != null) {
+            let url = window.location.href.toString();
+            url = url.replace(eval('/(' + name + '=)([^&]*)/gi'), replaceName);
+            window.history.replaceState({}, null, url);
+            return;
+        }
+    }
+
 
     //获取两点角度
     static getAngle(p1: cc.Vec2, p2: cc.Vec2): number {
@@ -335,5 +346,11 @@ export class Utils {
         cc.dynamicAtlasManager.showDebug(true)
     }
 
+    //获取指定点 改变锚点后坐标
+    static changeNodeARPos(x: number, y: number, arx: number, ary: number, arx1: number, ary1: number, width: number, height: number) {
+        let px = x - (arx1 - arx) * width;
+        let py = y - (ary1 - ary) * height;
+        return [px, py];
+    }
 
 }
